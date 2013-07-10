@@ -28,7 +28,7 @@ public class WordCount {
      */
     if (args.length != 2) {
       System.out.printf(
-          "Usage: WordCount <input dir> <output dir>\n");
+          "Usage: WordCount <input dir> <output dir>%n");
       System.exit(-1);
     }
 
@@ -90,6 +90,8 @@ public class WordCount {
      */
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
+
+    job.setNumReduceTasks(1);
 
     /*
      * Start the MapReduce job and wait for it to finish.
